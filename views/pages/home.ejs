@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/home.css">
+    <title>Ecommerce - Tienda de Ropa en Línea</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span>Ecommerce</span>
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Buscar productos...">
+            </div>
+            <div class="user">
+                <img src="../../public/photo_profile.webp" alt="Usuario" class="user-image" onclick="toggleMenu()">
+                <div class="user-menu" id="userMenu">
+                    <p><strong>Nombre de Usuario</strong></p>
+                    <span id="admin-label">Admin</span>
+                    <a href="#">Dashboard</a>
+                    <a href="#">Carrito de Compras</a>
+                    <a href="#">Mis compras</a>
+                    <a href="#">Editar Perfil</a>
+                    <a href="#">Salir</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="subtitle">Nuestros productos</h2>
+        <div class="product-grid">
+            <!-- Aquí irán los productos en forma de cuadrícula -->
+            <!-- Ejemplo de un producto -->
+            <div class="product">
+                <img src="../../public/product-image.jpg" alt="Producto">
+                <h3>Nombre del Producto</h3>
+                <p>Descripción del producto.</p>
+                <p>Precio: $XX.XX</p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <img src="../../public/product-image.jpg" alt="Producto">
+                <h3>Nombre del Producto</h3>
+                <p>Descripción del producto.</p>
+                <p>Precio: $XX.XX</p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <img src="../../public/product-image.jpg" alt="Producto">
+                <h3>Nombre del Producto</h3>
+                <p>Descripción del producto.</p>
+                <p>Precio: $XX.XX</p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <img src="../../public/product-image.jpg" alt="Producto">
+                <h3>Nombre del Producto</h3>
+                <p>Descripción del producto.</p>
+                <p>Precio: $XX.XX</p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <img src="../../public/product-image.jpg" alt="Producto">
+                <h3>Nombre del Producto</h3>
+                <p>Descripción del producto.</p>
+                <p>Precio: $XX.XX</p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <div class="product">
+                <img src="../../public/product-image.jpg" alt="Producto">
+                <h3>Nombre del Producto</h3>
+                <p>Descripción del producto.</p>
+                <p>Precio: $XX.XX</p>
+                <button>Agregar al Carrito</button>
+            </div>
+            <!-- Repetir este bloque para cada producto -->
+        </div>
+
+        <div class="pagination">
+            <!-- Aquí irá la paginación -->
+            <button id="pagination-active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <!-- Agregar más botones según sea necesario -->
+        </div>
+
+       
+    </main>
+
+    <footer>
+        <!-- Contenido del footer -->
+        <p>&copy; 2023 Ecommerce - Tienda de Ropa en Línea. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var userMenu = document.getElementById("userMenu");
+            userMenu.style.display = (userMenu.style.display === "flex") ? "none" : "flex";
+        }
+    </script>
+</body>
+</html>
