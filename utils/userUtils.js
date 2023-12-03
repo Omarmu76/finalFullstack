@@ -19,7 +19,9 @@ const compararPasswords = (password, hash, slat)=>{
 }
 
 const createToken = (data)=>{
-    const token = jwt.sign(data, "secret")
+    const token = jwt.sign({
+        data:data
+    }, "secret")
     return token
 }
 

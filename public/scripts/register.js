@@ -15,7 +15,7 @@ form.addEventListener("submit", (event)=>{
             body:JSON.stringify({
                 email:email.value,
                 password:password.value,
-                photoURL:photoURL.value,
+                photo:photoURL.value,
                 name: nombre.value
             }),
             headers:{

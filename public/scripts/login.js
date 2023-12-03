@@ -13,9 +13,11 @@ form.addEventListener("submit",(event)=>{
         headers:{
             "Content-Type": "application/json",
         }
-    }).then((res)=>{
-        console.log("res:",res)
-    }).catch((error) => {
+    }).then(async (res)=>{
+        const text = await res.text()
+        console.log("res:",text)
+    }).catch(async (error) => {
+        const error = await error.text()
         console.error('Error:', error);
     })    
 })

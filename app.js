@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.listen(port, async(req, res) => {
     try{
-        await mongoose.connect('mongodb://localhost:27017/finalFullstack');
+        await mongoose.connect('mongodb://127.0.0.1:27017/finalFullstack');
         console.log(`Example app listening on port ${port}`)
     }catch(error){
         console.log("error to connect mongoDB", error)
