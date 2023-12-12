@@ -1,7 +1,7 @@
 const crypto = require("crypto")
 const jwt = require("jsonwebtoken")
-const createHashAndSalt = ()=>{
-    const salt = crypto.randonBytes(16).toString("hex");
+const createHashAndSalt = (password)=>{
+    const salt = crypto.randomBytes(16).toString("hex");
     const hash = crypto.pbkdf2Sync(password, salt,
         1000, 64, `sha512`).toString(`hex`);
 
@@ -11,7 +11,7 @@ const createHashAndSalt = ()=>{
     }
 }
 
-const compararPasswords = (password, hash, slat)=>{
+const compararPasswords = (password, hash, salt)=>{
     const newHash = crypto.pbkdf2Sync(password, salt,
         1000, 64, `sha512`).toString(`hex`);
 

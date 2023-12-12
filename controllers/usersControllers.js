@@ -6,15 +6,15 @@ const login = async (req, res)=>{
     const email = req.body.email
     const password = req.body.password
     const user = await User.findOne({email: email})
-    const matchPassword = userUtils.comparePaswords(password, user.password, user.salt)
+    const matchPassword = userUtils.compararPasswords(password, user.password, user.salt)
     if(matchPassword){
         const token = userUtils.createToken(user)
         res.status(200).send(token)
     }
     }catch (error){
+        console.log("error", error)
         res.status(500).send(error)
     }
-   
 }
 
 const register = async (req, res)=>{
@@ -24,19 +24,19 @@ const register = async (req, res)=>{
         const photo = req.body.photo
         const name = req.body.name
         if(email && password && photo){
-            const hasSalt = userUtils.createHashAndSalt(password)
-            await user.create({
+            const hashSalt = userUtils.createHashAndSalt(password)
+            await User.create({
                 name: name,
                 email: email,
-                password: createHashAndSalt.hash,
-                salt: hashSalt.sltt,
+                password: hashSalt.hash,
+                salt: hashSalt.salt,
                 photo: photo,
                 isAdmin:false
             })
         }
         
     }catch(error){
-        console.log(register)
+        console.log(error)
         res.status(500).send(error)
     }
     

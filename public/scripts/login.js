@@ -16,8 +16,8 @@ form.addEventListener("submit",(event)=>{
     }).then(async (res)=>{
         const text = await res.text()
         console.log("res:",text)
-    }).catch(async (error) => {
-        const error = await error.text()
+    }).catch(async (err) => {
+        const error = await err.text()
         console.error('Error:', error);
     })    
 })
