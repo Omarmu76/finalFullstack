@@ -1,6 +1,5 @@
 const User = require("../models/userModels")
-const userUtils = require("../utils/userUtils.js")
-
+const userUtils = require("../utils/userUtils")
 const login = async (req, res)=>{
     try{
     const email = req.body.email
@@ -10,11 +9,13 @@ const login = async (req, res)=>{
     if(matchPassword){
         const token = userUtils.createToken(user)
         res.status(200).send(token)
+    }else{
+        res.status(400).send("pasword no match")
     }
-    }catch (error){
-        console.log("error", error)
-        res.status(500).send(error)
-    }
+}catch (error){
+    console.log("error", error)
+    res.status(500).send(error)
+}
 }
 
 const register = async (req, res)=>{
@@ -33,17 +34,24 @@ const register = async (req, res)=>{
                 photo: photo,
                 isAdmin:false
             })
+        }else{
+            res.status(400).send("datos incompletos")
         }
-        
+
     }catch(error){
-        console.log(error)
         res.status(500).send(error)
     }
     
 }
 
+const logout = (req, res)=>{
+    req.user = null
+    res.clearCookie("token");
+    res.status(200).end()
+}
 
 module.exports = {
     login: login,
-    register: register
+    register: register,
+    logout:logout
 }

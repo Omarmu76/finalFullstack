@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
     photo: String,
     salt: String,
     isAdmin: Boolean
-})
+});
 
 const user = mongoose.model("user", userSchema)
 

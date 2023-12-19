@@ -3,6 +3,7 @@ const app = express()
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const userRoutes = require("./routers/userRoutes")
+const cookieParser = require("cookie-parser")
 const viewRouter = require("./routers/viewsRoutes")
 const cors = require("cors")
 const port = 3000
@@ -10,6 +11,7 @@ const port = 3000
 //middlewares
 app.use(bodyParser.json())
 app.use(cors())
+app.use(cookieParser())
 app.use(express.static('public'));
 app.set("view engine", "ejs");
 
@@ -19,9 +21,9 @@ app.use("/", viewRouter)
 //rutas de recursos
 app.use("/api/user/", userRoutes)
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
   res.send('Hello World!')
-})
+}) */
 
 app.listen(port, async(req, res) => {
     try{
@@ -30,4 +32,4 @@ app.listen(port, async(req, res) => {
     }catch(error){
         console.log("error to connect mongoDB", error)
     }
-})
+  })

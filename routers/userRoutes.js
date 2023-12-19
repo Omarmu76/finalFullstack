@@ -4,5 +4,6 @@ const usersControllers = require("../controllers/usersControllers")
 
 route.post("/login", usersControllers.login)
 route.post("/register", usersControllers.register)
+route.get("/logout", usersControllers.logout)
 
 module.exports = route
