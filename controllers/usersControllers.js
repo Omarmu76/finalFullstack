@@ -2,16 +2,16 @@ const User = require("../models/userModels")
 const userUtils = require("../utils/userUtils")
 const login = async (req, res)=>{
     try{
-    const email = req.body.email
-    const password = req.body.password
-    const user = await User.findOne({email: email})
-    const matchPassword = userUtils.compararPasswords(password, user.password, user.salt)
-    if(matchPassword){
-        const token = userUtils.createToken(user)
-        res.status(200).send(token)
-    }else{
-        res.status(400).send("pasword no match")
-    }
+        const email = req.body.email
+        const password = req.body.password
+        const user = await User.findOne({email: email})
+        const matchPassword = userUtils.compararPasswords(password, user.password, user.salt)
+        if(matchPassword){
+            const token = userUtils.createToken(user)
+            res.status(200).send(token)
+        }else{
+            res.status(400).send("pasword no match")
+        }
 }catch (error){
     console.log("error", error)
     res.status(500).send(error)
@@ -53,5 +53,5 @@ const logout = (req, res)=>{
 module.exports = {
     login: login,
     register: register,
-    logout:logout
+    logout: logout
 }

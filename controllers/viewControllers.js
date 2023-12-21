@@ -8,7 +8,7 @@ const register = (req, res)=>{
 
 const home = (req, res)=>{
     if(req.user){
-        res.render("pages/home",{user:req.user})
+        res.render("pages/home")
     }else{
         res.redirect("http://localhost:3000/login")
     }
@@ -16,7 +16,7 @@ const home = (req, res)=>{
 
 const dashboard = (req,res)=>{
     res.render("pages/dashboard")
-    //res.render("pages/home",{user:req,dashboard})
+    res.render("pages/home",{user:req,dashboard})
 }
 
 module.exports = {

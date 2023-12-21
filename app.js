@@ -21,11 +21,7 @@ app.use("/", viewRouter)
 //rutas de recursos
 app.use("/api/user/", userRoutes)
 
-/* app.get('/', (req, res) => {
-  res.send('Hello World!')
-}) */
-
-app.listen(port, async(req, res) => {
+app.listen(port, async() => {
     try{
         await mongoose.connect('mongodb://127.0.0.1:27017/finalFullstack');
         console.log(`Example app listening on port ${port}`)
