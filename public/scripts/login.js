@@ -17,6 +17,7 @@ form.addEventListener("submit",(event)=>{
         const token = await res.text()
         localStorage.setItem("token", token)
         document.cookie = "token=" + token;
+        console.log("token:", token)
         window.location.href = "http://localhost:3000/"
     }).catch(async (err) => {
         const error = await err.text()

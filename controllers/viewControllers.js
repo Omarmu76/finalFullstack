@@ -8,7 +8,7 @@ const register = (req, res)=>{
 
 const home = (req, res)=>{
     if(req.user){
-        res.render("pages/home")
+        res.render("pages/home", {user:req.user})
     }else{
         res.redirect("http://localhost:3000/login")
     }

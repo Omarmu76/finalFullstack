@@ -5,6 +5,7 @@ const login = async (req, res)=>{
         const email = req.body.email
         const password = req.body.password
         const user = await User.findOne({email: email})
+        console.error(user)
         const matchPassword = userUtils.compararPasswords(password, user.password, user.salt)
         if(matchPassword){
             const token = userUtils.createToken(user)

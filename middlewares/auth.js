@@ -1,6 +1,7 @@
 const userUtils = require("../utils/userUtils")
 const authMiddleware = (req,res,next)=>{
     const token = req.cookies.token
+    console.error(token)
     if(token){
         const user = userUtils.validateToken(token)
         if(user){
