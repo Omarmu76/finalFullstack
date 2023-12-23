@@ -32,25 +32,8 @@
     <!-- Sección de Productos -->
     <section class="products">
       <h2>Productos</h2>
-      <ul>
-        <li>
-            <img src="./product-image.jpg" alt="">
-          Producto 1 - Precio: $20
-          <button class="edit-btn" onclick="openEditModal()">Editar</button>
-          <button class="delete-btn" onclick="openDeleteModal()">Borrar</button>
-        </li>
-        <li>
-            <img src="./product-image.jpg" alt="">
-          Producto 2 - Precio: $30
-          <button class="edit-btn" onclick="openEditModal()">Editar</button>
-          <button class="delete-btn" onclick="openDeleteModal()">Borrar</button>
-        </li>
-        <li>
-            <img src="./product-image.jpg" alt="">
-          Producto 3 - Precio: $25
-          <button class="edit-btn" onclick="openEditModal()">Editar</button>
-          <button class="delete-btn" onclick="openDeleteModal()">Borrar</button>
-        </li>
+      <ul id="list-products">
+
       </ul>
       <button class="create-btn" onclick="openCreateModal()">Crear Nuevo Producto</button>
       <!-- Aquí van funciones para crear, editar y borrar productos -->
@@ -99,7 +82,7 @@
         <label for="productImage">Imagen:</label>
         <input type="text" id="productImage" name="productImage" required>
         
-        <button type="submit" onclick="ceateProduct()">Crear Producto</button>
+        <button type="submit" onclick="createProduct()">Crear Producto</button>
       </form>
     </div>
     </div>
@@ -167,9 +150,9 @@
             document.getElementById('createModal').style.display = 'none';
             }
 
-            function openEditModal() {
+/*             function openEditModal() {
             document.getElementById('editProductModal').style.display = 'block';
-            }
+            } */
 
             function closeEditModal() {
             document.getElementById('editProductModal').style.display = 'none';

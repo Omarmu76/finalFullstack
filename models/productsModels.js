@@ -3,10 +3,10 @@ const mongoose = require("mongoose")
 const productsSchema = new mongoose.Schema({
     name: String,
     price: Number,
-    Image: String,
+    image: String,
     description:String,
     });
 
-const User = mongoose.model("Product", productsSchema);
+const Product = mongoose.model("Product", productsSchema);
 
-module.exports = User
+module.exports = Product

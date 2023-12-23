@@ -16,7 +16,7 @@ const create = async(req,res)=>{
     
 }
 
-const update = async ()=>{
+const update = async (req,res)=>{
     try{
         await Product.findByIdAndUpdate(req.body.productId)
         res.status(200).end()
@@ -25,7 +25,7 @@ const update = async ()=>{
     }
 }
 
-const remove = async ()=>{
+const remove = async (req,res)=>{
     try{
         await Product.findByIdAndRemove(req.body.productId)
     }catch(error){
@@ -33,7 +33,7 @@ const remove = async ()=>{
     }
 }
 
-const get = async ()=>{
+const get = async (req,res)=>{
     try{
         const products = await Product.find()
         res.status(200).json(products)
