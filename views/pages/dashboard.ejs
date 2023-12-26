@@ -105,7 +105,7 @@
             <label for="editProductImage">Imagen:</label>
             <input type="text" id="editProductImage" name="editProductImage" required>
     
-            <button type="submit">Guardar Cambios</button>
+            <button type="submit" onclick="updateProduct()">Guardar Cambios</button>
         </form>
         </div>
     </div>
@@ -150,13 +150,15 @@
             document.getElementById('createModal').style.display = 'none';
             }
 
-/*             function openEditModal() {
+/*          se llevó a dashboard.js   
+            function openEditModal() {
             document.getElementById('editProductModal').style.display = 'block';
             } */
 
+/*          se llevó a dashboard.js   
             function closeEditModal() {
             document.getElementById('editProductModal').style.display = 'none';
-            }
+            } */
 
             // Función para abrir el modal de edición de órdenes de compra
             function openEditOrderModal() {
@@ -168,22 +170,25 @@
             document.getElementById('editOrderModal').style.display = 'none';
             }
 
+/*           se llevó a dashboard.js  
             function openDeleteModal() {
             document.getElementById('deleteModal').style.display = 'block';
-            }
+            } */
 
-            // Función para cerrar el modal de eliminación
+/*             // Función para cerrar el modal de eliminación
             function closeDeleteModal() {
             document.getElementById('deleteModal').style.display = 'none';
-            }
+            } */
 
             // Función para confirmar la eliminación
+
+/*          se llevó a dashboard.js   
             function confirmDelete() {
             // Aquí puedes agregar la lógica para eliminar el producto o la orden
             // Una vez confirmada la eliminación, puedes redirigir o realizar otras acciones necesarias.
             console.log('Eliminado'); // Este es solo un ejemplo, ajusta según tu lógica.
             closeDeleteModal();
-            }
+            } */
 
             function toggleMenu() {
             var userMenu = document.getElementById("userMenu");

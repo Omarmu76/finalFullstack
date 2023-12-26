@@ -16,7 +16,7 @@ const home = (req, res)=>{
 
 const dashboard = (req,res)=>{
     res.render("pages/dashboard")
-    res.render("pages/home",{user:req,dashboard})
+    /* res.render("pages/home",{user:req,dashboard}) */ //esto provocaba el error 
 }
 
 module.exports = {

@@ -19,36 +19,33 @@ const login = async (req, res)=>{
 }
 }
 
-const register = async (req, res)=>{
-    try{
-        const email = req.body.email
-        const password = req.body.password
-        const photo = req.body.photo
-        const name = req.body.name
-        if(email && password && photo){
-            const hashSalt = userUtils.createHashAndSalt(password)
+const register = async (req, res) => {
+    try {
+        const { email, password, photo, name } = req.body;
+        if (email && password && photo && name) {
+            const hashSalt = userUtils.createHashAndSalt(password);
             await User.create({
                 name: name,
                 email: email,
                 password: hashSalt.hash,
                 salt: hashSalt.salt,
                 photo: photo,
-                isAdmin:false
-            })
-        }else{
-            res.status(400).send("datos incompletos")
+                isAdmin: false
+            });
+            res.redirect("/"); // Redirige al usuario a la página de inicio después del registro
+        } else {
+            res.status(400).send("Datos incompletos");
         }
-
-    }catch(error){
-        res.status(500).send(error)
+    } catch (error) {
+        res.status(500).send(error);
     }
-    
-}
+};
+
 
 const logout = (req, res)=>{
     req.user = null
     res.clearCookie("token");
-    res.status(200).end()
+    res.status(200).end("usuario desconectado");
 }
 
 module.exports = {
