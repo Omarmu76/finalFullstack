@@ -1,3 +1,5 @@
+const Product = require('../models/productsModels')
+
 const login = (req, res)=>{
     res.render("pages/login");
 }
@@ -6,9 +8,11 @@ const register = (req, res)=>{
     res.render("pages/register");
 }
 
-const home = (req, res)=>{
+const home = async (req, res)=>{
+    const products = await Product.find({})
+    console.log('products', products)
     if(req.user){
-        res.render("pages/home", {user:req.user})
+        res.render("pages/home", {user:req.user, products:products})
     }else{
         res.redirect("http://localhost:3000/login")
     }
@@ -16,12 +20,17 @@ const home = (req, res)=>{
 
 const dashboard = (req,res)=>{
     res.render("pages/dashboard")
-    /* res.render("pages/home",{user:req,dashboard}) */ //esto provocaba el error 
+    }
+
+const cart = (req, res)=>{
+/*     console.log('cart',shoppingCart) */
+    res.render('pages/shoppingCart')
 }
 
 module.exports = {
     login: login,
     register: register,
     home: home,
-    dashboard:dashboard
+    dashboard:dashboard,
+    cart: cart
 }

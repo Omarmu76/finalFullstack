@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-/* console.log(‘mongoose set debug: true’) */
+
 const productsSchema = new mongoose.Schema({
     name: String,
     price: Number,

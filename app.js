@@ -4,6 +4,7 @@ const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
 const userRoutes = require("./routers/userRoutes")
 const productRoutes = require("./routers/productsRoute")
+const cartRoutes = require('./routers/cartRoutes')
 
 const cookieParser = require("cookie-parser")
 const viewRouter = require("./routers/viewsRoutes")
@@ -22,6 +23,7 @@ app.use("/", viewRouter)
 
 //rutas de recursos
 app.use("/api/user/", userRoutes)
+app.use('/api/cart/',cartRoutes)
 app.use("/api/product/", productRoutes)
 
 app.listen(port, async() => {
